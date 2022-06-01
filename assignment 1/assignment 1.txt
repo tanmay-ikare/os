@@ -1,0 +1,48 @@
+Write shell scripts to 
+
+a. Rename all files in the current directory that end in \.jpg" to begin with today's date.
+
+Input:
+~$ vi namechange.sh
+~$ chmod +x namechange.sh
+~$ ./namechange.sh
+
+In namechange file:
+DAY=$(date +%F)
+Cd /home/user
+for FILE in *.png
+do
+mv $FILE ${DAY}-${FILE}
+done
+
+b. Delete the zero sized files
+
+echo “Enter any file name”
+read filenm
+if [ -e $filenm ]
+then
+echo $filenm “ File exist”
+if [ -s $filenm ]
+then
+echo $filenm“ File has size > 0 ”
+else
+rm $filenm
+echo $filenm“ File is Deleted which has size = 0”
+fi
+else
+echo “File not exist”
+fi
+
+c. Take an input file and remove identical lines (or duplicate lines from the file)
+
+Welcome
+Hello
+Morning
+Night
+Hello
+Morning
+Good
+Night
+Lectures
+
+

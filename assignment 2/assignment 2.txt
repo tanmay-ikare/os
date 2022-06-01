@@ -1,0 +1,39 @@
+Implement the Unix file commands using shell scripting.
+
+choice=1
+while [ $choice -ne 10 ] do
+echo " 1) present working Directory
+2) list files
+3) create directory
+4) change ditrectory
+5) remove file
+6) remove directory
+7) rename file
+8) creating file
+9) display contents of file
+10) exit "
+echo "Enter Your choice : " read choice
+case $choice in
+1) echo "Displaying present working directory " pwd;;
+2) echo "Enlisting files in the present directory " ls;;
+3) echo "Name the directory to create : " read newname
+mkdir $newname;;
+4) echo "Name the directory to move in : " read dirName
+cd $dirName pwd
+;;
+5) echo "Name the file to Remove : " read fname
+rm $fname;;
+6) echo "Name the directory to be removed : " read dirName
+rmdir $dirName;;
+7) echo "Name the File name to be change : " read ofName
+echo "Enter the Filename : " read nfName
+mv $ofName $nfName;;
+8) echo "Name the file to Enter : " read fName
+touch $fName;;
+9) echo "Name the file to be displayed : " read fName
+cat $fName;;
+10) echo "End of Program"
+;;
+*) echo "Invalid data retry "
+;;
+esac done
